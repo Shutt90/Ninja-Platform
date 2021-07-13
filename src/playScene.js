@@ -20,21 +20,13 @@ class playScene extends Phaser.Scene {
   }
 
   create() {
-    this.add.sprite(300, 400, "attack001").setScale("0.2");
-
-    this.anims.create({
-      key: "attack1",
-      frames: this.anims.generateFrameNumbers("attack1001", {
-        start: 0,
-        end: 8,
-      }),
-      frameRate: 8,
-      repeat: -1,
-    });
-
-    this.anims.play("attack001", "attack1");
-
-    this.add.sprite(400, 300, "attack1001").play("attack1");
+    this.attack();
+    this.idle();
+    this.dead();
+    this.glide();
+    this.idle = this.add.sprite(400, 300, "idle001").setScale(0.2);
+    // this.idle.play("idle1");
+    // this.idle.play("attack1");
   }
 
   update() {}
@@ -240,6 +232,206 @@ class playScene extends Phaser.Scene {
     this.load.image(`throw008`, "/src/assets/Sprites/throw/Throw__007.png");
     this.load.image(`throw009`, "/src/assets/Sprites/throw/Throw__008.png");
     this.load.image(`throw010`, "/src/assets/Sprites/throw/Throw__009.png");
+  }
+
+  attack() {
+    this.anims.create({
+      key: "attack1",
+      frames: [
+        { key: "attack001" },
+        { key: "attack002" },
+        { key: "attack003" },
+        { key: "attack004" },
+        { key: "attack005" },
+        { key: "attack006" },
+        { key: "attack007" },
+        { key: "attack008" },
+        { key: "attack009" },
+        { key: "attack010" },
+      ],
+      frameRate: 30,
+      repeat: 1,
+    });
+  }
+
+  idle() {
+    this.anims.create({
+      key: "idle1",
+      frames: [
+        { key: "idle001" },
+        { key: "idle002" },
+        { key: "idle003" },
+        { key: "idle004" },
+        { key: "idle005" },
+        { key: "idle006" },
+        { key: "idle007" },
+        { key: "idle008" },
+        { key: "idle009" },
+        { key: "idle010" },
+      ],
+      frameRate: 30,
+      repeat: -1,
+    });
+  }
+
+  dead() {
+    this.anims.create({
+      key: "dead1",
+      frames: [
+        { key: "dead001" },
+        { key: "dead002" },
+        { key: "dead003" },
+        { key: "dead004" },
+        { key: "dead005" },
+        { key: "dead006" },
+        { key: "dead007" },
+        { key: "dead008" },
+        { key: "dead009" },
+        { key: "dead010" },
+      ],
+      frameRate: 30,
+      repeat: 1,
+    });
+  }
+
+  glide() {
+    this.anims.create({
+      key: "glide",
+      frames: [
+        { key: "glide001" },
+        { key: "glide002" },
+        { key: "glide003" },
+        { key: "glide004" },
+        { key: "glide005" },
+        { key: "glide006" },
+        { key: "glide007" },
+        { key: "glide008" },
+        { key: "glide009" },
+        { key: "glide010" },
+      ],
+      frameRate: 30,
+      repeat: 1,
+    });
+  }
+
+  jump() {
+    this.anims.create({
+      key: "jump",
+      frames: [
+        { key: "jump001" },
+        { key: "jump002" },
+        { key: "jump003" },
+        { key: "jump004" },
+        { key: "jump005" },
+        { key: "jump006" },
+        { key: "jump007" },
+        { key: "jump008" },
+        { key: "jump009" },
+        { key: "jump010" },
+      ],
+      frameRate: 30,
+      repeat: 1,
+    });
+  }
+
+  jumpAttack() {
+    this.anims.create({
+      key: "jumpAttack",
+      frames: [
+        { key: "jump-attack001" },
+        { key: "jump-attack002" },
+        { key: "jump-attack003" },
+        { key: "jump-attack004" },
+        { key: "jump-attack005" },
+        { key: "jump-attack006" },
+        { key: "jump-attack007" },
+        { key: "jump-attack008" },
+        { key: "jump-attack009" },
+        { key: "jump-attack010" },
+      ],
+      frameRate: 30,
+      repeat: 1,
+    });
+  }
+
+  jumpThrow() {
+    this.anims.create({
+      key: "jumpThrow",
+      frames: [
+        { key: "jump-throw001" },
+        { key: "jump-throw002" },
+        { key: "jump-throw003" },
+        { key: "jump-throw004" },
+        { key: "jump-throw005" },
+        { key: "jump-throw006" },
+        { key: "jump-throw007" },
+        { key: "jump-throw008" },
+        { key: "jump-throw009" },
+        { key: "jump-throw010" },
+      ],
+      frameRate: 30,
+      repeat: 1,
+    });
+  }
+
+  run() {
+    this.anims.create({
+      key: "run",
+      frames: [
+        { key: "run001" },
+        { key: "run002" },
+        { key: "run003" },
+        { key: "run004" },
+        { key: "run005" },
+        { key: "run006" },
+        { key: "run007" },
+        { key: "run008" },
+        { key: "run009" },
+        { key: "run010" },
+      ],
+      frameRate: 30,
+      repeat: 1,
+    });
+  }
+
+  slide() {
+    this.anims.create({
+      key: "slide",
+      frames: [
+        { key: "slide001" },
+        { key: "slide002" },
+        { key: "slide003" },
+        { key: "slide004" },
+        { key: "slide005" },
+        { key: "slide006" },
+        { key: "slide007" },
+        { key: "slide008" },
+        { key: "slide009" },
+        { key: "slide010" },
+      ],
+      frameRate: 30,
+      repeat: 1,
+    });
+  }
+
+  throw() {
+    this.anims.create({
+      key: "throw",
+      frames: [
+        { key: "throw001" },
+        { key: "throw002" },
+        { key: "throw003" },
+        { key: "throw004" },
+        { key: "throw005" },
+        { key: "throw006" },
+        { key: "throw007" },
+        { key: "throw008" },
+        { key: "throw009" },
+        { key: "throw010" },
+      ],
+      frameRate: 30,
+      repeat: 1,
+    });
   }
 }
 
