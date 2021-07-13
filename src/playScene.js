@@ -24,8 +24,17 @@ class playScene extends Phaser.Scene {
     this.idle();
     this.dead();
     this.glide();
-    this.idle = this.add.sprite(400, 300, "idle001").setScale(0.2);
-    // this.idle.play("idle1");
+    this.climb();
+    this.jumpAttack();
+    this.jumpThrow();
+    this.jump();
+    this.run();
+    this.slide();
+    this.throw();
+    this.ninja = this.add.sprite(400, 300, "attack001").setScale(0.2);
+
+    this.ninja.play("attack");
+
     // this.idle.play("attack1");
   }
 
@@ -45,16 +54,16 @@ class playScene extends Phaser.Scene {
   }
 
   climbAssets() {
-    this.load.image(`climb001`, "/src/assets/Sprites/climb/Climb__000.png");
-    this.load.image(`climb002`, "/src/assets/Sprites/climb/Climb__001.png");
-    this.load.image(`climb003`, "/src/assets/Sprites/climb/Climb__002.png");
-    this.load.image(`climb004`, "/src/assets/Sprites/climb/Climb__003.png");
-    this.load.image(`climb005`, "/src/assets/Sprites/climb/Climb__004.png");
-    this.load.image(`climb006`, "/src/assets/Sprites/climb/Climb__005.png");
-    this.load.image(`climb007`, "/src/assets/Sprites/climb/Climb__006.png");
-    this.load.image(`climb008`, "/src/assets/Sprites/climb/Climb__007.png");
-    this.load.image(`climb009`, "/src/assets/Sprites/climb/Climb__008.png");
-    this.load.image(`climb010`, "/src/assets/Sprites/climb/Climb__009.png");
+    this.load.image(`climb001`, "/src/assets/Sprites/climb/Climb_000.png");
+    this.load.image(`climb002`, "/src/assets/Sprites/climb/Climb_001.png");
+    this.load.image(`climb003`, "/src/assets/Sprites/climb/Climb_002.png");
+    this.load.image(`climb004`, "/src/assets/Sprites/climb/Climb_003.png");
+    this.load.image(`climb005`, "/src/assets/Sprites/climb/Climb_004.png");
+    this.load.image(`climb006`, "/src/assets/Sprites/climb/Climb_005.png");
+    this.load.image(`climb007`, "/src/assets/Sprites/climb/Climb_006.png");
+    this.load.image(`climb008`, "/src/assets/Sprites/climb/Climb_007.png");
+    this.load.image(`climb009`, "/src/assets/Sprites/climb/Climb_008.png");
+    this.load.image(`climb010`, "/src/assets/Sprites/climb/Climb_009.png");
   }
 
   deadAssets() {
@@ -71,16 +80,16 @@ class playScene extends Phaser.Scene {
   }
 
   glideAssets() {
-    this.load.image(`glide001`, "/src/assets/Sprites/glide/Glide__000.png");
-    this.load.image(`glide002`, "/src/assets/Sprites/glide/Glide__001.png");
-    this.load.image(`glide003`, "/src/assets/Sprites/glide/Glide__002.png");
-    this.load.image(`glide004`, "/src/assets/Sprites/glide/Glide__003.png");
-    this.load.image(`glide005`, "/src/assets/Sprites/glide/Glide__004.png");
-    this.load.image(`glide006`, "/src/assets/Sprites/glide/Glide__005.png");
-    this.load.image(`glide007`, "/src/assets/Sprites/glide/Glide__006.png");
-    this.load.image(`glide008`, "/src/assets/Sprites/glide/Glide__007.png");
-    this.load.image(`glide009`, "/src/assets/Sprites/glide/Glide__008.png");
-    this.load.image(`glide010`, "/src/assets/Sprites/glide/Glide__009.png");
+    this.load.image(`glide001`, "/src/assets/Sprites/glide/Glide_000.png");
+    this.load.image(`glide002`, "/src/assets/Sprites/glide/Glide_001.png");
+    this.load.image(`glide003`, "/src/assets/Sprites/glide/Glide_002.png");
+    this.load.image(`glide004`, "/src/assets/Sprites/glide/Glide_003.png");
+    this.load.image(`glide005`, "/src/assets/Sprites/glide/Glide_004.png");
+    this.load.image(`glide006`, "/src/assets/Sprites/glide/Glide_005.png");
+    this.load.image(`glide007`, "/src/assets/Sprites/glide/Glide_006.png");
+    this.load.image(`glide008`, "/src/assets/Sprites/glide/Glide_007.png");
+    this.load.image(`glide009`, "/src/assets/Sprites/glide/Glide_008.png");
+    this.load.image(`glide010`, "/src/assets/Sprites/glide/Glide_009.png");
   }
 
   idleAssets() {
@@ -112,86 +121,86 @@ class playScene extends Phaser.Scene {
   jumpAttackAssets() {
     this.load.image(
       `jump-attack001`,
-      "/src/assets/Sprites/jump-attack/Jump-Attack__000.png"
+      "/src/assets/Sprites/jump-attack/Jump_Attack__000.png"
     );
     this.load.image(
       `jump-attack002`,
-      "/src/assets/Sprites/jump-attack/Jump-Attack__001.png"
+      "/src/assets/Sprites/jump-attack/Jump_Attack__001.png"
     );
     this.load.image(
       `jump-attack003`,
-      "/src/assets/Sprites/jump-attack/Jump-Attack__002.png"
+      "/src/assets/Sprites/jump-attack/Jump_Attack__002.png"
     );
     this.load.image(
       `jump-attack004`,
-      "/src/assets/Sprites/jump-attack/Jump-Attack__003.png"
+      "/src/assets/Sprites/jump-attack/Jump_Attack__003.png"
     );
     this.load.image(
       `jump-attack005`,
-      "/src/assets/Sprites/jump-attack/Jump-Attack__004.png"
+      "/src/assets/Sprites/jump-attack/Jump_Attack__004.png"
     );
     this.load.image(
       `jump-attack006`,
-      "/src/assets/Sprites/jump-attack/Jump-Attack__005.png"
+      "/src/assets/Sprites/jump-attack/Jump_Attack__005.png"
     );
     this.load.image(
       `jump-attack007`,
-      "/src/assets/Sprites/jump-attack/Jump-Attack__006.png"
+      "/src/assets/Sprites/jump-attack/Jump_Attack__006.png"
     );
     this.load.image(
       `jump-attack008`,
-      "/src/assets/Sprites/jump-attack/Jump-Attack__007.png"
+      "/src/assets/Sprites/jump-attack/Jump_Attack__007.png"
     );
     this.load.image(
       `jump-attack009`,
-      "/src/assets/Sprites/jump-attack/Jump-Attack__008.png"
+      "/src/assets/Sprites/jump-attack/Jump_Attack__008.png"
     );
     this.load.image(
       `jump-attack010`,
-      "/src/assets/Sprites/jump-attack/Jump-Attack__009.png"
+      "/src/assets/Sprites/jump-attack/Jump_Attack__009.png"
     );
   }
 
   jumpThrowAssets() {
     this.load.image(
       `jump-throw001`,
-      "/src/assets/Sprites/jump-throw/Jump-Throw__000.png"
+      "/src/assets/Sprites/jump-throw/Jump_Throw__000.png"
     );
     this.load.image(
       `jump-throw002`,
-      "/src/assets/Sprites/jump-throw/Jump-Throw__001.png"
+      "/src/assets/Sprites/jump-throw/Jump_Throw__001.png"
     );
     this.load.image(
       `jump-throw003`,
-      "/src/assets/Sprites/jump-throw/Jump-Throw__002.png"
+      "/src/assets/Sprites/jump-throw/Jump_Throw__002.png"
     );
     this.load.image(
       `jump-throw004`,
-      "/src/assets/Sprites/jump-throw/Jump-Throw__003.png"
+      "/src/assets/Sprites/jump-throw/Jump_Throw__003.png"
     );
     this.load.image(
       `jump-throw005`,
-      "/src/assets/Sprites/jump-throw/Jump-Throw__004.png"
+      "/src/assets/Sprites/jump-throw/Jump_Throw__004.png"
     );
     this.load.image(
       `jump-throw006`,
-      "/src/assets/Sprites/jump-throw/Jump-Throw__005.png"
+      "/src/assets/Sprites/jump-throw/Jump_Throw__005.png"
     );
     this.load.image(
       `jump-throw007`,
-      "/src/assets/Sprites/jump-throw/Jump-Throw__006.png"
+      "/src/assets/Sprites/jump-throw/Jump_Throw__006.png"
     );
     this.load.image(
       `jump-throw008`,
-      "/src/assets/Sprites/jump-throw/Jump-Throw__007.png"
+      "/src/assets/Sprites/jump-throw/Jump_Throw__007.png"
     );
     this.load.image(
       `jump-throw009`,
-      "/src/assets/Sprites/jump-throw/Jump-Throw__008.png"
+      "/src/assets/Sprites/jump-throw/Jump_Throw__008.png"
     );
     this.load.image(
       `jump-throw010`,
-      "/src/assets/Sprites/jump-throw/Jump-Throw__009.png"
+      "/src/assets/Sprites/jump-throw/Jump_Throw__009.png"
     );
   }
 
@@ -236,7 +245,7 @@ class playScene extends Phaser.Scene {
 
   attack() {
     this.anims.create({
-      key: "attack1",
+      key: "attack",
       frames: [
         { key: "attack001" },
         { key: "attack002" },
@@ -254,9 +263,29 @@ class playScene extends Phaser.Scene {
     });
   }
 
+  climb() {
+    this.anims.create({
+      key: "climb",
+      frames: [
+        { key: "climb001" },
+        { key: "climb002" },
+        { key: "climb003" },
+        { key: "climb004" },
+        { key: "climb005" },
+        { key: "climb006" },
+        { key: "climb007" },
+        { key: "climb008" },
+        { key: "climb009" },
+        { key: "climb010" },
+      ],
+      frameRate: 30,
+      repeat: 1,
+    });
+  }
+
   idle() {
     this.anims.create({
-      key: "idle1",
+      key: "idle",
       frames: [
         { key: "idle001" },
         { key: "idle002" },
