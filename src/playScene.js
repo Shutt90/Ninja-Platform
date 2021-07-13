@@ -33,7 +33,7 @@ class playScene extends Phaser.Scene {
     this.throw();
     this.ninja = this.add.sprite(400, 300, "attack001").setScale(0.2);
 
-    this.ninja.play("attack");
+    this.ninja.play("dead");
 
     // this.idle.play("attack1");
   }
@@ -305,7 +305,7 @@ class playScene extends Phaser.Scene {
 
   dead() {
     this.anims.create({
-      key: "dead1",
+      key: "dead",
       frames: [
         { key: "dead001" },
         { key: "dead002" },
