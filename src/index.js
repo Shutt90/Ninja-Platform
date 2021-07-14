@@ -7,6 +7,13 @@ const config = {
   width: 800,
   height: 600,
   scene: [playScene],
+  physics: {
+    default: "arcade",
+    arcade: {
+      debug: true,
+      
+    }
+  }
 };
 
 const game = new Phaser.Game(config);

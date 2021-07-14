@@ -31,14 +31,25 @@ class playScene extends Phaser.Scene {
     this.run();
     this.slide();
     this.throw();
-    this.ninja = this.add.sprite(400, 300, "attack001").setScale(0.2);
+    this.ninja = this.add.sprite(this.sys.game.config.width/2, 300, "attack001");
+    this.ninja.setScale(0.2);
+    this.input.keyboard.on('keydown-' + 'D', function() {
+      this.ninja.play("run")
+    }, this);
+    this.input.keyboard.on('keyup-' + 'D', function() {
+      this.ninja.play("idle")
+    }, this);
+    this.input.keyboard.on('keydown-' + 'SPACE', function() {
+      this.ninja.y -= 10
+      this.ninja.play("jump")
+    }, this);
 
-    this.ninja.play("dead");
 
     // this.idle.play("attack1");
   }
 
-  update() {}
+  update() {
+  }
 
   attackAssets() {
     this.load.image(`attack001`, "/src/assets/Sprites/attack/Attack__000.png");
@@ -398,6 +409,8 @@ class playScene extends Phaser.Scene {
         { key: "jump-throw009" },
         { key: "jump-throw010" },
       ],
+      skipMissedFrames: true,
+      timescale: 1,
       frameRate: 30,
       repeat: 1,
     });
@@ -461,6 +474,14 @@ class playScene extends Phaser.Scene {
       frameRate: 30,
       repeat: 1,
     });
+  }
+
+  runAnim() {
+    this.ninja.play("run");
+  }
+
+  idleAnim() {
+    this.ninja.play("idle")
   }
 }
 
