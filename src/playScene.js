@@ -17,9 +17,11 @@ class playScene extends Phaser.Scene {
     this.runAssets();
     this.slideAssets();
     this.throwAssets();
+    this.load.image("platform", "/src/assets/platform.png");
   }
 
   create() {
+    this.velocity = 200;
     this.attack();
     this.idle();
     this.dead();
@@ -31,25 +33,46 @@ class playScene extends Phaser.Scene {
     this.run();
     this.slide();
     this.throw();
-    this.ninja = this.add.sprite(this.sys.game.config.width/2, 300, "attack001");
+    this.platform = this.physics.add.image(
+      this.sys.game.config.width / 2,
+      this.sys.game.config.height * 0.9,
+      "platform"
+    );
+    this.platform.setCollideWorldBounds(true).setImmovable();
+    this.ninja = this.physics.add.sprite(
+      this.sys.game.config.width / 2,
+      300,
+      "attack001"
+    );
+    this.physics.add.collider(this.ninja, this.platform, null, null, this);
+    this.ninja.setCollideWorldBounds(true);
     this.ninja.setScale(0.2);
-    this.input.keyboard.on('keydown-' + 'D', function() {
-      this.ninja.play("run")
-    }, this);
-    this.input.keyboard.on('keyup-' + 'D', function() {
-      this.ninja.play("idle")
-    }, this);
-    this.input.keyboard.on('keydown-' + 'SPACE', function() {
-      this.ninja.y -= 10
-      this.ninja.play("jump")
-    }, this);
-
+    this.ninja.body.gravity.y = 50;
+    this.input.keyboard.on(
+      "keydown-" + "D",
+      function () {
+        this.ninja.x += 5;
+        this.ninja.play("run");
+      },
+      this
+    );
+    this.input.keyboard.on(
+      "keyup-" + "D",
+      function () {
+        this.ninja.play("idle");
+      },
+      this
+    );
+    this.input.keyboard.on("keydown-" + "SPACE", function () {
+      this.ninja.x + 10;
+      this.ninja.y -= 20;
+      this.ninja.play("jump");
+    });
 
     // this.idle.play("attack1");
   }
 
-  update() {
-  }
+  update() {}
 
   attackAssets() {
     this.load.image(`attack001`, "/src/assets/Sprites/attack/Attack__000.png");
@@ -481,7 +504,7 @@ class playScene extends Phaser.Scene {
   }
 
   idleAnim() {
-    this.ninja.play("idle")
+    this.ninja.play("idle");
   }
 }
 
