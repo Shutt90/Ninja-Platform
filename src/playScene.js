@@ -57,17 +57,29 @@ class playScene extends Phaser.Scene {
       this
     );
     this.input.keyboard.on(
+      "keydown-" + "A",
+
+      function () {
+        this.ninja.x -= 5;
+        this.ninja.play("run");
+      },
+      this
+    );
+    this.input.keyboard.on(
       "keyup-" + "D",
       function () {
         this.ninja.play("idle");
       },
       this
     );
+    
     this.input.keyboard.on("keydown-" + "SPACE", function () {
-      this.ninja.x + 10;
+      this.ninja.x += 10;
       this.ninja.y -= 20;
       this.ninja.play("jump");
-    });
+    }, this);
+
+    console.log(this.ninja)
 
     // this.idle.play("attack1");
   }
