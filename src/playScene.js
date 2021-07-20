@@ -48,38 +48,7 @@ class playScene extends Phaser.Scene {
     this.ninja.setCollideWorldBounds(true);
     this.ninja.setScale(0.2);
     this.ninja.body.gravity.y = 50;
-    this.input.keyboard.on(
-      "keydown-" + "D",
-      function () {
-        this.ninja.x += 5;
-        this.ninja.play("run");
-      },
-      this
-    );
-    this.input.keyboard.on(
-      "keydown-" + "A",
-
-      function () {
-        this.ninja.x -= 5;
-        this.ninja.play("run");
-      },
-      this
-    );
-    this.input.keyboard.on(
-      "keyup-" + "D",
-      function () {
-        this.ninja.play("idle");
-      },
-      this
-    );
-    
-    this.input.keyboard.on("keydown-" + "SPACE", function () {
-      this.ninja.x += 10;
-      this.ninja.y -= 20;
-      this.ninja.play("jump");
-    }, this);
-
-    console.log(this.ninja)
+    this.keyDownActions();
 
     // this.idle.play("attack1");
   }
@@ -517,6 +486,38 @@ class playScene extends Phaser.Scene {
 
   idleAnim() {
     this.ninja.play("idle");
+  }
+
+  keyDownActions() {
+    this.input.keyboard.on(
+      "keydown-" + "D",
+      function () {
+        this.ninja.x += 5;
+        this.ninja.play("run");
+      },
+      this
+    );
+    this.input.keyboard.on(
+      "keydown-" + "A",
+      function () {
+        this.ninja.x -= 5;
+        this.ninja.play("run");
+      },
+      this
+    );
+    this.input.keyboard.on(
+      "keyup-" + "D",
+      function () {
+        this.ninja.play("idle");
+      },
+      this
+    );
+
+    this.input.keyboard.on("keydown-" + "W", function () {
+      this.ninja.x += 10;
+      this.ninja.y -= 20;
+      this.ninja.play("jump");
+    });
   }
 }
 
